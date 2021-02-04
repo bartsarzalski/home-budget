@@ -1,0 +1,4 @@
+export const BalanceActionsTypes = {
+    ADD_TO_BALANCE: 'ADD_TO_BALANCE',
+    SUBSTRACT_FROM_BALANCE: 'SUBSTRACT_FROM_BALANCE',
+};
