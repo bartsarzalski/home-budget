@@ -1,20 +1,22 @@
 import { BalanceActionsTypes } from './balance.types';
 
 const INITIAL_STATE = {
-    balance: 10000
+    balance: 0,
+    expenses: 0,
+    incomes: 0,
 };
 
 const balanceReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case BalanceActionsTypes.ADD_TO_BALANCE:
+        case BalanceActionsTypes.CALCULATE_EXPENSES:
             return {
                 ...state,
-                balance: state.balance + action.payload,
+                expenses: state.expenses + action.payload,
             }
-        case BalanceActionsTypes.SUBSTRACT_FROM_BALANCE:
+        case BalanceActionsTypes.CALUCALTE_INCOMES:
             return {
                 ...state,
-                balance: state.balance - action.payload,
+                incomes: state.incomes + action.payload,
             }
         default:
             return state;

@@ -1,11 +1,11 @@
 import { BalanceActionsTypes } from './balance.types';
 
-export const addToBalance = value => ({
-    type: BalanceActionsTypes.ADD_TO_BALANCE,
+export const calculateExpenses = value => ({
+    type: BalanceActionsTypes.CALCULATE_EXPENSES,
     payload: value,
 });
 
-export const substractFromBalance = value => ({
-    type: BalanceActionsTypes.SUBSTRACT_FROM_BALANCE,
+export const calculateIncomes = value => ({
+    type: BalanceActionsTypes.CALCULATE_INCOMES,
     payload: value,
 });

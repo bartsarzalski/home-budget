@@ -11,7 +11,7 @@ import balanceReducer from './balance/balance.reducer';
 } */
 
 const rootReducer = combineReducers({
-    balance: balanceReducer,
+    calculations: balanceReducer,
 });
 
 //export default persistReducer(persistConfig, rootReducer);
