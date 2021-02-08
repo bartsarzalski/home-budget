@@ -1,5 +1,7 @@
-form {
-    padding: 10px;
+.group {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
     input[type=text] {
         padding: 10px;
@@ -7,13 +9,16 @@ form {
         box-shadow: 0 0 15px 4px rgba(0,0,0,0.06);
     }
 
-    button {
-        padding: 10px;
-        border: none;
-        background-color:#3F51B5;
-        color:#fff;
-        font-weight: 600;
-        border-radius: 5px;
-        width: 30px;
+    div {
+        display: inline-block;
+        margin: 20px 10px;
+    }
+
+    .add-expenses-button:after {
+        content: '\002D'
+    }
+
+    .add-incomes-button:after {
+        content: '\002B'
     }
 }
