@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 //import { persistReducer } from 'redux-persist';
 //import storage from 'redux-persist/lib/storage';
 
-import balanceReducer from './balance/balance.reducer';
+import ItemsReducer from './items/items.reducer';
 
 /* const persistConfig = {
     key: "root",
@@ -11,7 +11,7 @@ import balanceReducer from './balance/balance.reducer';
 } */
 
 const rootReducer = combineReducers({
-    calculations: balanceReducer,
+    data: ItemsReducer,
 });
 
 //export default persistReducer(persistConfig, rootReducer);

@@ -1,0 +1,30 @@
+.group {
+    display: flex;
+
+    .add-container {
+        margin: 0 auto;
+
+        .add-type,
+        input[type=submit],
+        input[type=text] {
+            display: inline-block;
+            margin: 10px 10px;
+            font-size: 18px;
+            border-radius: 0;
+        }
+
+        input[type=text] {
+            border: 1px solid lightgray;
+        }
+
+        input[type=submit] {
+            background-color: #C8DCB8;
+            border: 1px solid transparent;
+            color: white;
+        }
+
+        .add-button:hover {
+            
+        }
+    }
+}

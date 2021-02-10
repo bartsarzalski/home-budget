@@ -1,10 +1,27 @@
-.balance {
-    display: flex;
-    justify-content: space-between;
+.main {
+    margin: 0 auto;
 
-    span {
-        display: inline-block;
-        align-items: center;
-        margin: 0px 20px;
+    .main-display {
+    
+        margin: 0 20px;
+
+        .balance {
+            font-size: 30px;
+        }
+
+        .income,
+        .expenses {
+            margin: 10px;
+            color: white;
+        }
+
+        .income {
+            background-color: #C8DCB8;
+        }
+
+        .expenses {
+            background-color: #EDCCB6;
+        }
+
     }
 }
