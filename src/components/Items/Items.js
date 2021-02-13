@@ -10,37 +10,33 @@ class Items extends Component {
         super(props);
 
         this.state = {
-            income: [],
-            expenses: [],
             item: {
                 id: '',
                 description: '',
-                value: 0,
+                value: '',
             },
             selectedOption:'income',
         }
     }
 
-    handleSubmit = () => {
-        const { selectedOption, income, expenses, item } = this.state;
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const { selectedOption, item } = this.state;
         const { addIncome, addExpense } = this.props;
 
         if (selectedOption === 'income') {
-            income.push({ ...item, id: uniqid() });
+            addIncome({...item, id: uniqid()});
         } else if (selectedOption === 'expenses') {
-            expenses.push({ ...item, id: uniqid() });
+            addExpense({...item, id: uniqid()});
         }
 
         this.setState({
             item: {
                 id: '',
                 description: '',
-                value: 0,
+                value: '',
             },
         });
-
-        console.log(this.state)
-
     }
 
     handleChange = event => {
@@ -56,10 +52,11 @@ class Items extends Component {
                 }
             }));
         }
-       //console.log(`${this.state.selectedOption} + ${this.state.item.description} + ${this.state.item.value}`)
     };
 
     render() {
+        const { description, value } = this.state.item;
+
         return (
         <div className="group">
                 <div className="add-container">
@@ -70,12 +67,14 @@ class Items extends Component {
                     <input 
                         type="text"
                         name="description"
+                        value={description}
                         placeholder="Description"
                         onChange={this.handleChange} 
                     />
                     <input 
                         type="text"
                         name="value"
+                        value={value}
                         placeholder="Value"
                         onChange={this.handleChange} 
                         onKeyPress={event => {
@@ -90,6 +89,8 @@ class Items extends Component {
                         onClick={this.handleSubmit} 
                         value="Save"
                     />
+                </div>
+                <div className="display__container">
                 </div>
         </div>
         );

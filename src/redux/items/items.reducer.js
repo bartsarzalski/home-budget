@@ -1,23 +1,11 @@
 import { ItemsActionTypes } from './items.types';
 
 const INITIAL_STATE = {
-    income: [
-        {
-            id: "",
-            description: "",
-            value: 0,
-        }
-    ],
-    expenses: [
-        {
-            id: "",
-            description: "",
-            value: 0,
-        }
-    ],
+    income: [],
+    expenses: [],
     total: {
-        exp: 0,
-        inc: 0,
+        exp: '',
+        inc: '',
     }
 };
 
@@ -31,7 +19,7 @@ const itemsReducer = (state = INITIAL_STATE, action) => {
         case ItemsActionTypes.ADD_EXPENSE:
             return {
                 ...state,
-                expense: [...state.income, action.payload]
+                expenses: [...state.expenses, action.payload]
             }
         default:
             return state;
