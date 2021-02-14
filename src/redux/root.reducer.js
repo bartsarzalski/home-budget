@@ -11,7 +11,7 @@ import ItemsReducer from './items/items.reducer';
 } */
 
 const rootReducer = combineReducers({
-    data: ItemsReducer,
+    items: ItemsReducer,
 });
 
 //export default persistReducer(persistConfig, rootReducer);

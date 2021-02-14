@@ -60,35 +60,40 @@ class Items extends Component {
         return (
         <div className="group">
                 <div className="add-container">
-                    <select onChange={this.handleChange} defaultValue='income' className="add-type">
-                        <option value="income">+</option>
-                        <option value="expenses">-</option>
-                    </select>
-                    <input 
-                        type="text"
-                        name="description"
-                        value={description}
-                        placeholder="Description"
-                        onChange={this.handleChange} 
-                    />
-                    <input 
-                        type="text"
-                        name="value"
-                        value={value}
-                        placeholder="Value"
-                        onChange={this.handleChange} 
+                    <form
+                        onSubmit={this.handleSubmit}
                         onKeyPress={event => {
                             if (event.key === "Enter") {
                                 this.handleSubmit();
                             }
                         }}
-                    />
-                    <input 
-                        className="add-button"
-                        type="submit"  
-                        onClick={this.handleSubmit} 
-                        value="Save"
-                    />
+                    >
+                        <select onChange={this.handleChange} defaultValue='income' className="add-type">
+                            <option value="income">+</option>
+                            <option value="expenses">-</option>
+                        </select>
+                        <input 
+                            type="text"
+                            name="description"
+                            value={description}
+                            placeholder="Description"
+                            onChange={this.handleChange} 
+                            required
+                        />
+                        <input 
+                            type="text"
+                            name="value"
+                            value={value}
+                            placeholder="Value"
+                            onChange={this.handleChange} 
+                            required
+                        />
+                        <input 
+                            className="add-button"
+                            type="submit"  
+                            value="Save"
+                        />
+                    </form>
                 </div>
                 <div className="display__container">
                 </div>

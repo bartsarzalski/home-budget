@@ -3,10 +3,6 @@ import { ItemsActionTypes } from './items.types';
 const INITIAL_STATE = {
     income: [],
     expenses: [],
-    total: {
-        exp: '',
-        inc: '',
-    }
 };
 
 const itemsReducer = (state = INITIAL_STATE, action) => {
