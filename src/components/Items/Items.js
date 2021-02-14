@@ -13,7 +13,7 @@ class Items extends Component {
             item: {
                 id: '',
                 description: '',
-                value: '',
+                value: 0,
             },
             selectedOption:'income',
         }
@@ -62,9 +62,9 @@ class Items extends Component {
                 <div className="add-container">
                     <form
                         onSubmit={this.handleSubmit}
-                        onKeyPress={event => {
+                        onKeyDown={event => {
                             if (event.key === "Enter") {
-                                this.handleSubmit();
+                                this.handleSubmit(event);
                             }
                         }}
                     >
@@ -81,7 +81,7 @@ class Items extends Component {
                             required
                         />
                         <input 
-                            type="text"
+                            type="number"
                             name="value"
                             value={value}
                             placeholder="Value"
