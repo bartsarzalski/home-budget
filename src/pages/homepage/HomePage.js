@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 
 import Items from '../../components/Items/Items';
-import { selectIncomeTotal, selectExpensesTotal, selectItemsBalance } from '../../redux/items/items.selectors';
+import { selectIncomesTotal, selectExpensesTotal, selectItemsBalance } from '../../redux/items/items.selectors';
 
 import './HomePage.scss';
 
-const HomePage = ({ expensesTotal, incomeTotal, itemsBalance }) => {
+const HomePage = ({ expensesTotal, incomesTotal, itemsBalance }) => {
     return (
         <div className="main">
             <div className="main-display">
@@ -17,7 +17,7 @@ const HomePage = ({ expensesTotal, incomeTotal, itemsBalance }) => {
                     }
                 </div>
                 <div className="income">
-                    Income: { incomeTotal
+                    Income: { incomesTotal
                                 .toFixed(2)
                                 .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') 
                             }
@@ -37,7 +37,7 @@ const HomePage = ({ expensesTotal, incomeTotal, itemsBalance }) => {
 const mapStateToProps = state => {
     return {
         expensesTotal: selectExpensesTotal(state),
-        incomeTotal: selectIncomeTotal(state),
+        incomesTotal: selectIncomesTotal(state),
         itemsBalance: selectItemsBalance(state),
     };
   };

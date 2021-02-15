@@ -56,6 +56,10 @@ class Items extends Component {
         }
     };
 
+    componentDidMount() {
+        this.select.focus();
+    }
+
     render() {
         const { description, value } = this.state.item;
 
@@ -65,7 +69,12 @@ class Items extends Component {
                     <form
                         onSubmit={this.handleSubmit}
                     >
-                        <select onChange={this.handleChange} defaultValue='income' className="add-type">
+                        <select 
+                            className="add-type"
+                            defaultValue='income'
+                            onChange={this.handleChange}  
+                            ref={el => (this.select = el)}
+                        >
                             <option value="income">+</option>
                             <option value="expenses">-</option>
                         </select>

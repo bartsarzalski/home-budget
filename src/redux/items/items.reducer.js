@@ -1,7 +1,7 @@
 import { ItemsActionTypes } from './items.types';
 
 const INITIAL_STATE = {
-    income: [],
+    incomes: [],
     expenses: [],
 };
 
@@ -10,7 +10,7 @@ const itemsReducer = (state = INITIAL_STATE, action) => {
         case ItemsActionTypes.ADD_INCOME:
             return {
                 ...state,
-                income: [...state.income, action.payload],
+                incomes: [...state.incomes, action.payload],
             }
         case ItemsActionTypes.ADD_EXPENSE:
             return {

@@ -2,9 +2,9 @@ import { createSelector } from 'reselect';
 
 const selectItems = state => state.items;
 
-export const selectIncome = createSelector(
+export const selectIncomes = createSelector(
     [selectItems],
-    items => items.income
+    items => items.incomes
 );
 
 export const selectExpenses = createSelector(
@@ -12,10 +12,10 @@ export const selectExpenses = createSelector(
     items => items.expenses
 );
 
-export const selectIncomeTotal = createSelector(
-    [selectIncome],
-    income =>
-    income.reduce(
+export const selectIncomesTotal = createSelector(
+    [selectIncomes],
+    incomes =>
+    incomes.reduce(
         (accumulatedTotal, income) =>
             accumulatedTotal + parseInt(income.value), 0
     )
@@ -31,7 +31,7 @@ export const selectExpensesTotal = createSelector(
 );
 
 export const selectItemsBalance = createSelector(
-    [selectIncomeTotal, selectExpensesTotal],
-    (selectIncomeTotal, selectExpensesTotal) => 
-        selectIncomeTotal - selectExpensesTotal
+    [selectIncomesTotal, selectExpensesTotal],
+    (selectIncomesTotal, selectExpensesTotal) => 
+        selectIncomesTotal - selectExpensesTotal
 );

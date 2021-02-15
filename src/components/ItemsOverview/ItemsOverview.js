@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 
-import { selectIncome, selectExpenses } from '../../redux/items/items.selectors';
+import { selectIncomes, selectExpenses } from '../../redux/items/items.selectors';
 
 import './ItemsOverview.scss';
 
-const ItemsOverview = ({ income, expenses }) => (
+const ItemsOverview = ({ incomes, expenses }) => (
     <div className="display__container">
-        <div className="display__income">Income
-            <div>{ income.map(item => 
+        <div className="display__income">Incomes
+            <div className="item__income">{ incomes.map(item => 
                 <span key={item.id}>{ item.description }</span>) }
             </div>
         </div>
         <div className="display__expenses">Expenses
-            <div>{ expenses.map(item => 
+            <div className="item__expense">{ expenses.map(item => 
                 <span key={item.id}>{ item.description }</span>) }
             </div>
         </div>
@@ -20,7 +20,7 @@ const ItemsOverview = ({ income, expenses }) => (
 );
 
 const mapStateToProps = state => ({
-    income: selectIncome(state),
+    incomes: selectIncomes(state),
     expenses: selectExpenses(state),
 });
 
