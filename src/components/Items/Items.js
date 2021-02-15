@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addIncome, addExpense } from '../../redux/items/items.actions';
 import uniqid from 'uniqid';
+
+import ItemsOverview from '../ItemsOverview/ItemsOverview';
+import { addIncome, addExpense } from '../../redux/items/items.actions';
 
 import './Items.scss';
 
@@ -13,7 +15,7 @@ class Items extends Component {
             item: {
                 id: '',
                 description: '',
-                value: 0,
+                value: '',
             },
             selectedOption:'income',
         }
@@ -59,14 +61,9 @@ class Items extends Component {
 
         return (
         <div className="group">
-                <div className="add-container">
+                <div className="add__container">
                     <form
                         onSubmit={this.handleSubmit}
-                        onKeyDown={event => {
-                            if (event.key === "Enter") {
-                                this.handleSubmit(event);
-                            }
-                        }}
                     >
                         <select onChange={this.handleChange} defaultValue='income' className="add-type">
                             <option value="income">+</option>
@@ -89,14 +86,18 @@ class Items extends Component {
                             required
                         />
                         <input 
-                            className="add-button"
+                            className="add__button"
                             type="submit"  
                             value="Save"
+                            onKeyDown={event => {
+                                if (event.key === "Enter") {
+                                    this.handleSubmit(event);
+                                }
+                            }}
                         />
                     </form>
                 </div>
-                <div className="display__container">
-                </div>
+                <ItemsOverview />
         </div>
         );
     }
